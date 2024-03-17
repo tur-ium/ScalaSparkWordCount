@@ -16,14 +16,14 @@ export PATH="$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin"
 ```dtd
 spark-submit --class "WordCount" --master local[4] target/scala-2.12/scalasparkwordcount_2.12-0.1.0-SNAPSHOT.jar
 ```
-4. It will print the word count in the command output in the following form
-`The counts of 5 most common words is (the,967), (of,642), (and,481), (to,318), (a,306)`
+4. It will print the total word count and the count of the five most frequently used words in the text file, as below
+![Example output](example_output.png)
 
 # Debugging
 Steps below based on http://www.bigendiandata.com/2016-08-26-How-to-debug-remote-spark-jobs-with-IntelliJ/
 2. Set environment variable `export SPARK_SUBMIT_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=7777`
 2. In IntelliJ IDEA, create a new run config as below 
-![img.png](img.png)
+![img.png](debugging_intellij.png)
 3. Run 
 ```
 spark-submit --class "WordCount" --master local[4] target/scala-2.12/scalasparkwordcount_2.12-0.1.0-SNAPSHOT.jar
