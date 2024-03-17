@@ -4,8 +4,8 @@ object WordCount {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder.appName("WordCount").getOrCreate()
     val sc = spark.sparkContext
-
-    val text = sc.textFile("/home/artur/IdeaProjects/ScalaSparkWordCount/gutenberg_pg73186.txt")
+    spark.sparkContext.setLogLevel("ERROR")
+    val text = sc.textFile("data/gutenberg_pg73186.txt")
     val words = text.flatMap(_.split("\\s"))
       .map(_.replaceAll("[,.!?:;]","")
         .trim
