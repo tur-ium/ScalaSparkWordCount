@@ -4,6 +4,9 @@ Scala Word Count
 Key advantage of using Spark for the word count is that the operation and data is distributed over many nodes. Don't need to fit all the data into memory of one machine
 
 # Compiling
+```dtd
+sbt package
+```
 
 # Running
 1. Install Spark
